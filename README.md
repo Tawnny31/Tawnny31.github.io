@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>¡Bienvenido a mi página de GitHub!</h1>
+<p>Este es un sitio web estático alojado con GitHub Pages.</p>
 <div class="container">
 	<div class="glass">
     <div class="shine"></div>
@@ -30,3 +35,5 @@
     <div></div>
   </div>
 </div>
+</body>
+</html>
