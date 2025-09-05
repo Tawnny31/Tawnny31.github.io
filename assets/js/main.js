@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
             formEmailPlaceholder: "Your Email",
             formMessagePlaceholder: "Your Message",
             formButton: "Send Message",
-            footerText: "&copy; 2025 Tawnny Elizondo. All rights reserved."
+            footerText: "&copy; 2025 Tawnny Elizondo. All rights reserved.",
+            modalTitle: "Thank you!",
+            modalText: "Your message has been sent. I will get in touch with you shortly."
         },
         es: {
             pageTitle: "Portafolio de Tawnny Elizondo",
@@ -87,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             formEmailPlaceholder: "Tu Email",
             formMessagePlaceholder: "Tu Mensaje",
             formButton: "Enviar Mensaje",
-            footerText: "&copy; 2025 Tawnny Elizondo. Todos los derechos reservados."
+            footerText: "&copy; 2025 Tawnny Elizondo. Todos los derechos reservados.",
+            modalTitle: "¡Gracias!",
+            modalText: "Tu mensaje ha sido enviado. Me pondré en contacto contigo pronto."
         }
     };
 
@@ -139,4 +143,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Establecer el idioma inicial al cargar la página
     setLanguage('es');
+
+    // --- LÓGICA DEL FORMULARIO Y MODAL ---
+    const contactForm = document.getElementById('contact-form');
+    const modal = document.getElementById('thank-you-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Previene la recarga de la página
+
+        const formData = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                modal.classList.add('visible'); // Muestra la modal
+                contactForm.reset(); // Limpia el formulario
+            } else {
+                // Opcional: Manejar errores si el envío falla
+                alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar el mensaje.');
+        });
+    });
+
+    // Función para cerrar la modal
+    const hideModal = () => {
+        modal.classList.remove('visible');
+    };
+
+    closeModal.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) { // Cierra la modal si se hace clic en el fondo
+            hideModal();
+        }
+    });
 });

@@ -198,8 +198,8 @@
                     <h2 data-lang-key="contactTitle" data-aos="fade-up">Contacto</h2>
                 </div>
                 <!-- FORMULARIO CONFIGURADO CON FORMSUBMIT -->
-                <form action="https://formsubmit.co/tawnny.elizondo@gmail.com" method="POST" data-aos="fade-up" data-aos-delay="100">
-
+                <form id="contact-form" action="https://formsubmit.co/tawnny.elizondo@gmail.com" method="POST" data-aos="fade-up" data-aos-delay="100">
+                    
                     <!-- Campo Nombre con Etiqueta Oculta -->
                     <label for="name" class="sr-only" data-lang-key="formNamePlaceholder">Tu Nombre</label>
                     <input type="text" id="name" name="name" data-lang-key="formNamePlaceholder" required>
@@ -212,12 +212,9 @@
                     <label for="message" class="sr-only" data-lang-key="formMessagePlaceholder">Tu Mensaje</label>
                     <textarea id="message" name="message" rows="5" data-lang-key="formMessagePlaceholder" required></textarea>
 
-                    <!-- Redirección a una página de agradecimiento después de enviar -->
-                    <input type="hidden" name="_next" value="https://tawnny31.github.io/thank-you.html">
-
                     <!-- Asunto del correo que recibirás -->
                     <input type="hidden" name="_subject" value="Nuevo Mensaje del Portafolio!">
-
+                    
                     <!-- Desactiva el CAPTCHA de FormSubmit (opcional) -->
                     <input type="hidden" name="_captcha" value="false">
 
@@ -226,6 +223,15 @@
             </div>
         </section>
     </main>
+
+    <!-- ===== VENTANA MODAL DE AGRADECIMIENTO ===== -->
+    <div id="thank-you-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="close-modal" class="close-modal">&times;</span>
+            <h2 data-lang-key="modalTitle">¡Gracias!</h2>
+            <p data-lang-key="modalText">Tu mensaje ha sido enviado. Me pondré en contacto contigo pronto.</p>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
