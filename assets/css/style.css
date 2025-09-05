@@ -1,45 +1,75 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 :root {
-  --primary-color: #007bff; /* Un azul profesional */
-  --secondary-color: #f8f9fa; /* Un gris claro para fondos */
-  --text-color: #343a40;
+  /* Paleta de Colores Dark Mode */
+  --primary-color: #00aaff; /* Azul vibrante para acentos */
+  --background-color: #0d1b2a; /* Azul oscuro casi negro para fondo */
+  --surface-color: #1b263b; /* Azul más claro para tarjetas */
+  --text-color: #e0e0e0;   /* Gris claro para texto principal */
   --light-text-color: #ffffff;
-  --hover-color: #0056b3;
+  --hover-color: #0088cc;
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  line-height: 1.6;
+  background-color: var(--background-color);
+  line-height: 1.8;
+  overflow-x: hidden;
 }
 
 .container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1100px;
   padding: 20px;
 }
 
+/* --- Encabezado Hero --- */
 header {
-  background: var(--primary-color);
-  color: var(--light-text-color);
-  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  min-height: 100vh; /* Ocupa toda la pantalla */
+  color: var(--light-text-color);
+  background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  min-height: 100px; /* Espacio para Typed.js */
 }
 
+header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* --- Navegación Sticky --- */
 nav {
-  background: #333;
-  color: var(--light-text-color);
-  padding: 0.5rem 0;
+  background: rgba(27, 38, 59, 0.8); /* Semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav .container {
@@ -48,27 +78,37 @@ nav .container {
   align-items: center;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+nav ul li { margin-left: 25px; }
 
 nav a {
   color: var(--light-text-color);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
 }
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav a:hover { color: var(--primary-color); }
+nav a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
 .lang-switcher button {
     background: none;
-    border: 2px solid transparent; /* Borde transparente por defecto */
-    color: var(--light-text-color);
+    border: 2px solid transparent;
     padding: 0;
     cursor: pointer;
     margin-left: 8px;
@@ -76,7 +116,7 @@ nav a {
     width: 32px; /* Ancho del botón */
     height: 32px; /* Alto del botón */
     overflow: hidden; /* Oculta las esquinas de la imagen */
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
     line-height: 0; /* Evita espacios extra */
 }
 
@@ -87,109 +127,122 @@ nav a {
 }
 
 .lang-switcher button.active {
-    border-color: var(--light-text-color); /* Borde blanco para el idioma activo */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
-section {
-  padding: 60px 0;
-  text-align: center;
-}
+.lang-switcher button:not(.active):hover { transform: scale(1.1); }
 
-section:nth-child(odd) {
-  background: var(--secondary-color);
-}
+/* --- Estilos de Secciones --- */
+section { padding: 80px 0; }
+
+.section-title-container { text-align: center; }
 
 h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
+  margin-bottom: 60px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 }
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    bottom: -10px;
+    left: 20%;
+    background-color: var(--primary-color);
+}
+
+/* --- Tarjetas de Proyectos --- */
+#projects { background-color: var(--surface-color); }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .project {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .project:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.1);
 }
 
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
+.project h3 { color: var(--primary-color); margin-top: 0; }
+.project p { flex-grow: 1; margin-bottom: 20px; }
+
+.project a {
+    color: var(--light-text-color);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
 }
 
+.project a:hover { background-color: var(--hover-color); }
+
+/* --- Formulario de Contacto --- */
 form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box; /* Importante para el padding */
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
 }
 
 form button {
-  width: 100%;
-  padding: 15px;
-  background: var(--primary-color);
-  color: var(--light-text-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 form button:hover {
   background: var(--hover-color);
+  transform: scale(1.02);
 }
 
+/* --- Footer --- */
 footer {
-    background: #333;
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 20px 0;
+    background: var(--surface-color);
+    padding: 30px 0;
     margin-top: 40px;
+    border-top: 1px solid var(--border-color);
 }
 
-/* --- Responsive Design --- */
+/* --- Diseño Responsivo --- */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  nav .container {
-    flex-direction: column;
-  }
-
-  nav ul {
-    margin-top: 10px;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .lang-switcher {
-      margin-top: 10px;
-  }
-
-  .container {
-    width: 90%;
-  }
+  header h1 { font-size: 2.5rem; min-height: 80px; }
+  header p { font-size: 1rem; }
+  nav .container { flex-direction: column; }
+  nav ul { margin-top: 15px; flex-direction: column; align-items: center; width: 100%; }
+  nav ul li { margin: 10px 0; }
+  .lang-switcher { margin-top: 15px; }
+  .container { width: 90%; }
+  h2 { font-size: 2rem; }
 }

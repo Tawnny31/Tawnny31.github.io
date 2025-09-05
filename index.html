@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="pageTitle">Portafolio de [Tu Nombre]</title>
+    <title data-lang-key="pageTitle">Portafolio de Tawnny Elizondo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <header>
         <div class="container">
-            <h1 data-lang-key="headerTitle">[Tu Nombre]</h1>
+            <h1 id="typed"></h1>
             <p data-lang-key="headerSubtitle">Ingeniera en Sistemas Computacionales</p>
         </div>
     </header>
@@ -33,48 +39,61 @@
         </div>
     </nav>
 
-    <section id="about">
-        <div class="container">
-            <h2 data-lang-key="aboutTitle">Sobre Mí</h2>
-            <p data-lang-key="aboutText">Aquí puedes escribir una breve descripción sobre ti, tus habilidades, tu pasión por la tecnología y lo que buscas profesionalmente. Destaca tus fortalezas como ingeniera en sistemas.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 data-lang-key="projectsTitle">Mis Proyectos</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <h3 data-lang-key="project1Title">Proyecto 1</h3>
-                    <p data-lang-key="project1Desc">Descripción del proyecto. Menciona las tecnologías utilizadas (ej. Java, Python, React, SQL) y el objetivo del proyecto.</p>
+    <main>
+        <section id="about">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 data-lang-key="aboutTitle" data-aos="fade-up">Sobre Mí</h2>
                 </div>
-                <div class="project">
-                    <h3 data-lang-key="project2Title">Proyecto 2</h3>
-                    <p data-lang-key="project2Desc">Descripción del proyecto. Menciona las tecnologías utilizadas y el objetivo del proyecto.</p>
-                </div>
-                <!-- Agrega más proyectos aquí -->
+                <p data-lang-key="aboutText" data-aos="fade-up" data-aos-delay="100">Aquí puedes escribir una breve descripción sobre ti, tus habilidades, tu pasión por la tecnología y lo que buscas profesionalmente. Destaca tus fortalezas como ingeniera en sistemas.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2 data-lang-key="contactTitle">Contacto</h2>
-            <form action="URL_DE_TU_SERVICIO_DE_FORMULARIO" method="POST">
-                <input type="text" name="name" placeholder="Tu Nombre" data-lang-key="formNamePlaceholder" required>
-                <input type="email" name="email" placeholder="Tu Email" data-lang-key="formEmailPlaceholder" required>
-                <textarea name="message" rows="5" placeholder="Tu Mensaje" data-lang-key="formMessagePlaceholder" required></textarea>
-                <button type="submit" data-lang-key="formButton">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
+        <section id="projects">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 data-lang-key="projectsTitle" data-aos="fade-up">Mis Proyectos</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project" data-aos="fade-up">
+                        <h3 data-lang-key="project1Title">Proyecto 1</h3>
+                        <p data-lang-key="project1Desc">Descripción del proyecto. Menciona las tecnologías utilizadas (ej. Java, Python, React, SQL) y el objetivo del proyecto.</p>
+                        <a href="#" target="_blank" data-lang-key="projectButton">Ver Proyecto</a>
+                    </div>
+                    <div class="project" data-aos="fade-up" data-aos-delay="100">
+                        <h3 data-lang-key="project2Title">Proyecto 2</h3>
+                        <p data-lang-key="project2Desc">Descripción del proyecto. Menciona las tecnologías utilizadas y el objetivo del proyecto.</p>
+                        <a href="#" target="_blank" data-lang-key="projectButton">Ver Proyecto</a>
+                    </div>
+                    <!-- Agrega más proyectos aquí con la misma estructura -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title-container">
+                    <h2 data-lang-key="contactTitle" data-aos="fade-up">Contacto</h2>
+                </div>
+                <form action="URL_DE_TU_SERVICIO_DE_FORMULARIO" method="POST" data-aos="fade-up" data-aos-delay="100">
+                    <input type="text" name="name" data-lang-key="formNamePlaceholder" required>
+                    <input type="email" name="email" data-lang-key="formEmailPlaceholder" required>
+                    <textarea name="message" rows="5" data-lang-key="formMessagePlaceholder" required></textarea>
+                    <button type="submit" data-lang-key="formButton">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p data-lang-key="footerText">&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+            <p data-lang-key="footerText">&copy; 2025 Tawnny Elizondo Ruiz. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
