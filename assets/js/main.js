@@ -8,6 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
       once: true
     });
 
+    // --- LÓGICA DEL INTERRUPTOR DE TEMA ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+
+    // Función para aplicar el tema
+    const applyTheme = (theme) => {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme); // Guarda la preferencia
+    };
+
+    // Evento de clic para el interruptor
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlEl.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+
+    // Cargar el tema guardado al iniciar la página
+    const savedTheme = localStorage.getItem('theme') || 'dark'; // 'dark' como predeterminado
+    applyTheme(savedTheme);
+
+
     // --- LÓGICA DE TRADUCCIÓN ---
 
     const translations = {
@@ -15,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pageTitle: "Tawnny Elizondo's Portfolio",
             headerSubtitle: "Computer Systems Engineer",
             typedStrings: ["Hello, I'm Tawnny Elizondo", "Developer and creative mind 🚀"],
+            heroSubtitle: "Data Analyst | Software Developer",
             navAbout: "About Me",
             navProjects: "Projects",
             navContact: "Contact",
@@ -56,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pageTitle: "Portafolio de Tawnny Elizondo",
             headerSubtitle: "Ingeniera en Sistemas Computacionales",
             typedStrings: ["Hola, soy Tawnny Elizondo", "Desarrolladora y creativa 🚀"],
+            heroSubtitle: "Analista de Datos | Desarrolladora de Software",
             navAbout: "Sobre Mí",
             navProjects: "Proyectos",
             navContact: "Contacto",

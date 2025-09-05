@@ -2,14 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  /* Paleta de Colores Dark Mode */
-  --primary-color: #00aaff; /* Azul vibrante para acentos */
-  --background-color: #0d1b2a; /* Azul oscuro casi negro para fondo */
-  --surface-color: #1b263b; /* Azul más claro para tarjetas */
-  --text-color: #e0e0e0;   /* Gris claro para texto principal */
-  --light-text-color: #ffffff;
-  --hover-color: #0088cc;
+  /* --- TEMA CLARO (Light Mode) --- */
+  --primary-color: #0077cc;      /* Azul principal */
+  --hover-color: #005599;        /* Azul oscuro para hover */
+  --background-color: #f0f8ff;   /* Fondo blanco azulado (AliceBlue) */
+  --surface-color: #ffffff;      /* Blanco para tarjetas */
+  --text-color: #0d1b2a;         /* Texto azul oscuro */
+  --light-text-color: #ffffff;   /* Texto para botones primarios */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --header-gradient: linear-gradient(-45deg, #e6f7ff, #b3e6ff, #80d4ff, #4dc2ff);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] {
+  /* --- TEMA OSCURO (Dark Mode) - TU PALETA --- */
+  --primary-color: #00aaff;      /* Azul vibrante */
+  --hover-color: #0088cc;        /* Azul más oscuro para hover */
+  --background-color: #0d1b2a;   /* Azul oscuro casi negro */
+  --surface-color: #1b263b;      /* Azul más claro para tarjetas */
+  --text-color: #e0e0e0;         /* Gris claro */
+  --light-text-color: #ffffff;   /* Texto para botones primarios */
   --border-color: rgba(255, 255, 255, 0.1);
+  --header-gradient: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
+  --nav-bg: rgba(27, 38, 59, 0.8);
 }
 
 body {
@@ -35,7 +50,7 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100vh; /* Ocupa toda la pantalla */
+  min-height: 50vh; /* Ocupa toda la pantalla */
   color: var(--light-text-color);
   background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
   background-size: 400% 400%;
@@ -77,6 +92,37 @@ nav .container {
   justify-content: space-between;
   align-items: center;
 }
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- Interruptor de Tema --- */
+.theme-toggle {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--background-color);
+}
+
+.theme-toggle .fa-sun { display: none; }
+.theme-toggle .fa-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .fa-sun { display: block; }
+[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 
 nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
 nav ul li { margin-left: 25px; }
@@ -260,10 +306,12 @@ form button:hover {
 
 /* --- Footer --- */
 footer {
-    background: var(--surface-color);
+    background: rgba(27, 38, 59, 0.8);
     padding: 30px 0;
     margin-top: 40px;
     border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--light-text-color); /* Corregido: usa la propiedad 'color' y una variable */
 }
 
 /* --- Estilos para Habilidades (Skills) --- */
