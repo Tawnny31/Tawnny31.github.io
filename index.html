@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tawnny Elizondo | Portafolio</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pageTitle">Portafolio de [Tu Nombre]</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Encabezado con Typed.js -->
-  <header>
-    <h1><span id="typed"></span></h1>
-  </header>
 
-  <!-- Sección proyectos -->
-  <section id="projects">
-    <h2>Mis Proyectos</h2>
-    <div id="projects-container"></div>
-  </section>
+    <header>
+        <div class="container">
+            <h1 data-lang-key="headerTitle">[Tu Nombre]</h1>
+            <p data-lang-key="headerSubtitle">Ingeniera en Sistemas Computacionales</p>
+        </div>
+    </header>
 
-  <!-- Contacto -->
-  <section id="contact">
-    <h2>Contacto</h2>
-    <form action="https://formspree.io/f/tu-form-id" method="POST">
-      <input type="email" name="email" placeholder="Tu correo" required>
-      <textarea name="message" placeholder="Mensaje"></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" data-lang-key="navAbout">Sobre Mí</a></li>
+                <li><a href="#projects" data-lang-key="navProjects">Proyectos</a></li>
+                <li><a href="#contact" data-lang-key="navContact">Contacto</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button id="btn-es" class="active">
+                    <img src="assets/images/es.svg" alt="Español">
+                </button>
+                <button id="btn-en">
+                    <img src="assets/images/us.svg" alt="English">
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
+    <section id="about">
+        <div class="container">
+            <h2 data-lang-key="aboutTitle">Sobre Mí</h2>
+            <p data-lang-key="aboutText">Aquí puedes escribir una breve descripción sobre ti, tus habilidades, tu pasión por la tecnología y lo que buscas profesionalmente. Destaca tus fortalezas como ingeniera en sistemas.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 data-lang-key="projectsTitle">Mis Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3 data-lang-key="project1Title">Proyecto 1</h3>
+                    <p data-lang-key="project1Desc">Descripción del proyecto. Menciona las tecnologías utilizadas (ej. Java, Python, React, SQL) y el objetivo del proyecto.</p>
+                </div>
+                <div class="project">
+                    <h3 data-lang-key="project2Title">Proyecto 2</h3>
+                    <p data-lang-key="project2Desc">Descripción del proyecto. Menciona las tecnologías utilizadas y el objetivo del proyecto.</p>
+                </div>
+                <!-- Agrega más proyectos aquí -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 data-lang-key="contactTitle">Contacto</h2>
+            <form action="URL_DE_TU_SERVICIO_DE_FORMULARIO" method="POST">
+                <input type="text" name="name" placeholder="Tu Nombre" data-lang-key="formNamePlaceholder" required>
+                <input type="email" name="email" placeholder="Tu Email" data-lang-key="formEmailPlaceholder" required>
+                <textarea name="message" rows="5" placeholder="Tu Mensaje" data-lang-key="formMessagePlaceholder" required></textarea>
+                <button type="submit" data-lang-key="formButton">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-lang-key="footerText">&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
