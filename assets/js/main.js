@@ -8,6 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
       once: true
     });
 
+    // --- INICIALIZACIÓN DEL CARRUSEL DE HABILIDADES ---
+    const skillsCarousel = new Swiper('.skills-carousel', {
+        slidesPerView: 1, // Muestra 1 categoría a la vez
+        spaceBetween: 30,
+        loop: true, // Para que el carrusel sea infinito
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
     // --- LÓGICA DEL INTERRUPTOR DE TEMA ---
     const themeToggle = document.getElementById('theme-toggle');
     const htmlEl = document.documentElement;
