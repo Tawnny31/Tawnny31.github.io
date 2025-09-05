@@ -245,6 +245,19 @@ form button:hover {
   transform: scale(1.02);
 }
 
+/* Clase para ocultar elementos visualmente pero mantenerlos para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* --- Footer --- */
 footer {
     background: var(--surface-color);

@@ -199,9 +199,18 @@
                 </div>
                 <!-- FORMULARIO CONFIGURADO CON FORMSUBMIT -->
                 <form action="https://formsubmit.co/tawnny.elizondo@gmail.com" method="POST" data-aos="fade-up" data-aos-delay="100">
-                    <input type="text" name="name" data-lang-key="formNamePlaceholder" required>
-                    <input type="email" name="email" data-lang-key="formEmailPlaceholder" required>
-                    <textarea name="message" rows="5" data-lang-key="formMessagePlaceholder" required></textarea>
+
+                    <!-- Campo Nombre con Etiqueta Oculta -->
+                    <label for="name" class="sr-only" data-lang-key="formNamePlaceholder">Tu Nombre</label>
+                    <input type="text" id="name" name="name" data-lang-key="formNamePlaceholder" required>
+
+                    <!-- Campo Email con Etiqueta Oculta -->
+                    <label for="email" class="sr-only" data-lang-key="formEmailPlaceholder">Tu Email</label>
+                    <input type="email" id="email" name="email" data-lang-key="formEmailPlaceholder" required>
+
+                    <!-- Campo Mensaje con Etiqueta Oculta -->
+                    <label for="message" class="sr-only" data-lang-key="formMessagePlaceholder">Tu Mensaje</label>
+                    <textarea id="message" name="message" rows="5" data-lang-key="formMessagePlaceholder" required></textarea>
 
                     <!-- Redirección a una página de agradecimiento después de enviar -->
                     <input type="hidden" name="_next" value="https://tawnny31.github.io/thank-you.html">
