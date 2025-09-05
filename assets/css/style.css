@@ -200,14 +200,29 @@ h2::after {
 .project a:hover { background-color: var(--hover-color); }
 
 /* --- Formulario de Contacto --- */
-form input, form textarea {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border-color);
-  background-color: var(--surface-color);
-  color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio uniforme entre todos los elementos */
+}
+
+form input, form textarea, form button {
+    width: 100%; /* Por defecto, todos los elementos ocupan el ancho completo */
+    padding: 15px;
+    margin-bottom: 0; /* Eliminamos el margen ya que usamos 'gap' */
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    font-size: 1rem;
+}
+
+/* Hacemos que los campos de Nombre y Email compartan el espacio */
+form input[type="text"],
+form input[type="email"] {
+    width: calc(50% - 10px); /* 50% del ancho menos la mitad del 'gap' */
 }
 
 form input:focus, form textarea:focus {
@@ -219,6 +234,9 @@ form input:focus, form textarea:focus {
 form button {
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--light-text-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -235,6 +253,115 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+/* --- Estilos para Habilidades (Skills) --- */
+.skills-categories-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna para las categorías */
+    gap: 25px; /* Espacio entre tarjetas de categoría */
+}
+
+.skill-category {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.skill-category h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-item {
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.skill-item span {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* --- Estilos para Certificaciones y Descarga --- */
+#certs_download {
+    background-color: var(--surface-color);
+}
+
+.split-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.certs-container, .download-container {
+    flex: 1;
+    min-width: 280px;
+}
+
+.certs-container h3, .download-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.certs-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.certs-container li {
+    background-color: var(--background-color);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-download {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
 /* --- Diseño Responsivo --- */
 @media (max-width: 768px) {
   header h1 { font-size: 2.5rem; min-height: 80px; }
@@ -245,4 +372,26 @@ footer {
   .lang-switcher { margin-top: 15px; }
   .container { width: 90%; }
   h2 { font-size: 2rem; }
+
+  .split-section {
+      flex-direction: column;
+      align-items: center;
+  }
+  .certs-container, .download-container {
+      width: 100%;
+      text-align: center;
+  }
+  .certs-container li {
+      text-align: left;
+  }
+
+  .skills-categories-container {
+      grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+
+  /* En pantallas pequeñas, los campos de Nombre y Email ocupan el 100% */
+  form input[type="text"],
+  form input[type="email"] {
+      width: 100%;
+  }
 }
