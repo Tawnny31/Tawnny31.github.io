@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cert3: "Certificación Importante #3",
             downloadTitle: "Descargar CV",
             downloadButtonEs: "Español",
-            downloadButtonEn: "English",
+            downloadButtonEn: "Inglés",
             // --- FIN NUEVAS TRADUCCIONES ---
             formNamePlaceholder: "Tu Nombre",
             formEmailPlaceholder: "Tu Email",
