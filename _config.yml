@@ -1,3 +1,7 @@
-theme: jekyll-theme-cayman
-title: Tawnny Elizondo R
-description: Portafolio personal
+title: "Tawnny Elizondo R"
+description: "Portafolio personal"
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
+
+
